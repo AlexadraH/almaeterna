@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones - Alma Eterna</title>
+    
+    <!-- Fuentes elegantes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            line-height: 1.6;
+            color: #6B5B73;
+            background-color: #F0EBF4;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Elegante */
+        header {
+            background: rgba(240, 235, 244, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(107, 91, 115, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(177, 156, 217, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #6B5B73;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .logo span {
+            color: #B19CD9;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #6B5B73;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #B19CD9;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #D4A5B0;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Contenido Principal */
+        .main-content {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            min-height: 100vh;
+        }
+
+        .terms-hero {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #6B5B73, #B19CD9);
+            color: white;
+            margin-bottom: 60px;
+            border-radius: 20px;
+        }
+
+        .terms-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .terms-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .terms-content {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(107, 91, 115, 0.1);
+            border: 1px solid rgba(177, 156, 217, 0.3);
+        }
+
+        .last-updated {
+            background: #B19CD9;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .terms-section {
+            margin-bottom: 40px;
+        }
+
+        .terms-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #6B5B73;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .terms-section h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #B19CD9, #D4A5B0);
+            bottom: 0;
+            left: 0;
+        }
+
+        .terms-section p {
+            color: #6B5B73;
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.1rem;
+        }
+
+        .terms-section ul {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        .terms-section li {
+            color: #6B5B73;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .terms-section li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            color: #B19CD9;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #B19CD9, #D4A5B0);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            background: #F0EBF4;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+            border: 1px solid rgba(177, 156, 217, 0.3);
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            color: #6B5B73;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: #6B5B73;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: #B19CD9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            color: #6B5B73;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #6B5B73;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: #D4A5B0;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .terms-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .terms-content {
+                padding: 30px 20px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    Alma <span>Eterna</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#esencia">Nosotros</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="contacto-con-emailjs.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="terms-hero">
+                <h1>Términos y Condiciones</h1>
+                <p>Conoce nuestras políticas y condiciones de servicio para una experiencia transparente y satisfactoria</p>
+            </section>
+
+            <!-- Contenido de Términos -->
+            <div class="terms-content">
+                <div class="last-updated">
+                    Última actualización: Enero 2025
+                </div>
+
+                <div class="terms-section">
+                    <h2>1. Pedidos y Disponibilidad</h2>
+                    <p>Todos los pedidos están sujetos a disponibilidad de materiales y flores preservadas. En caso de no contar con algún material específico, se notificará al cliente para ofrecer alternativas similares que mantengan la calidad y estética del diseño original.</p>
+                    <ul>
+                        <li>Confirmación de disponibilidad dentro de las primeras 24 horas</li>
+                        <li>Alternativas de materiales de igual o superior calidad</li>
+                        <li>Aprobación del cliente antes de cualquier sustitución</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>2. Tiempo de Anticipación</h2>
+                    <p>Para garantizar la máxima calidad en nuestras creaciones artesanales:</p>
+                    <ul>
+                        <li>Pedidos personalizados: mínimo 48 horas de anticipación</li>
+                        <li>Ramos de novia y piezas especiales: 1-2 semanas de anticipación</li>
+                        <li>Preservación de ramos: 2-3 semanas de proceso</li>
+                        <li>Pedidos urgentes: sujetos a disponibilidad con cargo adicional del 25%</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Fechas Especiales</h3>
+                    <p>En temporadas altas (San Valentín, Día de las Madres, temporada de bodas), recomendamos realizar pedidos con mayor anticipación para garantizar disponibilidad.</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>3. Métodos de Pago</h2>
+                    <p>Aceptamos los siguientes métodos de pago para tu comodidad:</p>
+                    <ul>
+                        <li>Efectivo en el establecimiento</li>
+                        <li>Transferencias bancarias</li>
+                        <li>Pagos con tarjeta de débito y crédito</li>
+                        <li>Pagos digitales (PayPal, etc.)</li>
+                    </ul>
+                    <p><strong>Importante:</strong> El pedido se confirma únicamente una vez recibido el pago del 50% como anticipo. El saldo restante se paga al momento de la entrega.</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>4. Política de Cancelación</h2>
+                    <p>Entendemos que pueden surgir cambios en tus planes:</p>
+                    <ul>
+                        <li>Cancelaciones con más de 48 horas: reembolso del 80% del anticipo</li>
+                        <li>Cancelaciones entre 24-48 horas: reembolso del 50% del anticipo</li>
+                        <li>Cancelaciones con menos de 24 horas: no reembolsables</li>
+                        <li>Productos ya iniciados: no reembolsables</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>5. Entregas y Recolección</h2>
+                    <p>Nuestro servicio de entrega se realiza en nuestro establecimiento ubicado en:</p>
+                    <p><strong>Dirección:</strong> Plaza de la novia, Calle República de chile # 68-70 esquina con Honduras, Colonia Centro</p>
+                    <ul>
+                        <li>Horario de entrega: Lunes a Viernes 9:00 AM - 7:00 PM</li>
+                        <li>Sábados: 10:00 AM - 6:00 PM</li>
+                        <li>Domingos: Solo citas especiales previamente acordadas</li>
+                        <li>Entregas a domicilio: Disponibles con costo adicional en área metropolitana</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>6. Responsabilidad de Entrega</h2>
+                    <p>Para asegurar que recibas tu pedido en perfectas condiciones:</p>
+                    <ul>
+                        <li>Si no te presentas en el horario acordado, intentaremos contactarte</li>
+                        <li>Sin respuesta en 2 horas, la cita se reagendará</li>
+                        <li>Reagendación sin costo adicional (primera vez)</li>
+                        <li>Reagendaciones posteriores: cargo de $100 pesos</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>7. Estado de los Productos</h2>
+                    <p>Garantizamos la entrega de productos en perfecto estado:</p>
+                    <ul>
+                        <li>Inspección de calidad antes de cada entrega</li>
+                        <li>No se aceptan devoluciones una vez entregado el producto</li>
+                        <li>Excepción: daños visibles y comprobables al momento de la entrega</li>
+                        <li>Reclamos por daños: deben reportarse inmediatamente en el momento de la entrega</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>8. Fotografías de Referencia</h2>
+                    <p>Las imágenes en nuestras redes sociales y sitio web son ilustrativas. El producto final puede presentar ligeras variaciones debido a:</p>
+                    <ul>
+                        <li>Disponibilidad estacional de materiales</li>
+                        <li>Características naturales de las flores preservadas</li>
+                        <li>Proceso artesanal único de cada pieza</li>
+                        <li>Personalización específica del cliente</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>9. Personalización de Productos</h2>
+                    <p>Cambios en el diseño después de la confirmación del pedido:</p>
+                    <ul>
+                        <li>Solo se aceptan si el proceso de elaboración no ha comenzado</li>
+                        <li>Cambios menores: sin costo adicional</li>
+                        <li>Cambios significativos: pueden implicar ajuste en el precio</li>
+                        <li>Una vez iniciado el trabajo: no se aceptan modificaciones</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>10. Ofertas y Promociones</h2>
+                    <ul>
+                        <li>Válidas únicamente en el período especificado</li>
+                        <li>No son acumulables con otras promociones</li>
+                        <li>Sujetas a términos específicos de cada promoción</li>
+                        <li>No aplicables a pedidos ya confirmados</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>11. Clientes Frecuentes</h2>
+                    <p>Valoramos la lealtad de nuestros clientes:</p>
+                    <ul>
+                        <li>Descuentos exclusivos para clientes frecuentes</li>
+                        <li>Acceso prioritario a nuevos diseños</li>
+                        <li>Beneficios especiales en temporadas altas</li>
+                        <li>Programa de referidos con recompensas</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>12. Facturación</h2>
+                    <p>Para facturación electrónica:</p>
+                    <ul>
+                        <li>Solicitar al momento de hacer el pedido</li>
+                        <li>Proporcionar información fiscal completa y correcta</li>
+                        <li>No se pueden generar facturas posteriores a la entrega</li>
+                        <li>Tiempo de entrega de factura: 3-5 días hábiles</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Cuidado y Mantenimiento</h3>
+                    <p>Incluimos instrucciones detalladas de cuidado con cada producto para garantizar su durabilidad y belleza a través del tiempo.</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>13. Modificaciones del Servicio</h2>
+                    <p>Alma Eterna se reserva el derecho de modificar estos términos y condiciones. Las modificaciones entrarán en vigor inmediatamente después de su publicación en nuestro sitio web. Se recomienda verificar la versión actualizada antes de cada compra.</p>
+                </div>
+
+                <div class="contact-info">
+                    <h3>¿Tienes Dudas?</h3>
+                    <p>Si tienes alguna pregunta sobre estos términos y condiciones, no dudes en contactarnos:</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+525542737649">+52 (55) 4273-7649</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:almaeterna90@gmail.com">almaeterna90@gmail.com</a></p>
+                    <p><strong>Dirección:</strong> Plaza de la novia, Calle República de chile # 68-70 esquina con Honduras, Colonia Centro</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Alma Eterna. Todos los derechos reservados.</p>
+            <p>Creando belleza que perdura en el tiempo</p>
+            <div class="footer-links">
+                <a href="servicios.html">Servicios</a>
+                <a href="contacto-con-emailjs.html">Contacto</a>
+                <a href="terminos-y-condiciones.html">Términos y Condiciones</a>
+                <a href="index.html#nosotros">Sobre Nosotros</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

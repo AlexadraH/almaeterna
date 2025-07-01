@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Alma Eterna</title>
+    <!-- Fuentes elegantes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            line-height: 1.6;
+            color: #6B5B73;
+            background-color: #F0EBF4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Elegante */
+        header {
+            background: rgba(240, 235, 244, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(107, 91, 115, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(177, 156, 217, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #6B5B73;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .logo span {
+            color: #B19CD9;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #6B5B73;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #B19CD9;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #D4A5B0;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .products-hero {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, #6B5B73, #B19CD9);
+            color: white;
+            text-align: center;
+        }
+
+        .products-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .products-hero p {
+            font-size: 1.3rem;
+            font-style: italic;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Categorías */
+        .categories {
+            padding: 80px 0;
+            background-color: #F0EBF4;
+        }
+
+        .categories h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 60px;
+            color: #6B5B73;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(107, 91, 115, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(177, 156, 217, 0.3);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(107, 91, 115, 0.15);
+        }
+
+        .category-image {
+            height: 250px;
+            background: linear-gradient(135deg, #B19CD9, #D4A5B0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/placeholder.svg?height=250&width=400') center/cover;
+            opacity: 0.3;
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .category-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        .category-content {
+            padding: 30px;
+        }
+
+        .category-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #6B5B73;
+            margin-bottom: 15px;
+        }
+
+        .category-content p {
+            color: #6B5B73;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .category-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .category-features li {
+            color: #6B5B73;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .category-features li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            color: #B19CD9;
+        }
+
+        .category-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #6B5B73, #B19CD9);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(107, 91, 115, 0.3);
+        }
+
+        /* Productos Destacados */
+        .featured-products {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #B19CD9 0%, #D4A5B0 100%);
+        }
+
+        .featured-products h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 60px;
+            color: #6B5B73;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(107, 91, 115, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, #B19CD9, #D4A5B0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/placeholder.svg?height=200&width=280') center/cover;
+            opacity: 0.4;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #6B5B73;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: #6B5B73;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #B19CD9;
+            margin-bottom: 15px;
+        }
+
+        .product-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #6B5B73, #B19CD9);
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .product-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Proceso de Trabajo */
+        .process {
+            padding: 80px 0;
+            background-color: #F0EBF4;
+        }
+
+        .process h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 60px;
+            color: #6B5B73;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #6B5B73, #B19CD9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .process-step h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #6B5B73;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: #6B5B73;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #6B5B73, #B19CD9);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #6B5B73;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #6B5B73;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: #D4A5B0;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .products-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .categories-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    Alma <span>Eterna</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#nosotros">Nosotros</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="products-hero">
+        <div class="container">
+            <h1>Nuestros Productos</h1>
+            <p>Descubre nuestra colección de flores preservadas y accesorios únicos, diseñados para hacer eternos tus momentos más especiales</p>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section class="categories">
+        <div class="container">
+            <h2>Nuestras Categorías</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-image">
+                        <div class="category-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <h3>Ramos de Novia</h3>
+                        <p>Ramos únicos y personalizados para el día más importante de tu vida, creados con flores preservadas que mantendrán su belleza para siempre.</p>
+                        <ul class="category-features">
+                            <li>Flores preservadas de alta calidad</li>
+                            <li>Diseños personalizados</li>
+                            <li>Colores a elección</li>
+                            <li>Duración permanente</li>
+                        </ul>
+                        <a href="#" class="category-btn">Ver Ramos</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-image">
+                        <div class="category-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <h3>Tiaras y Coronas</h3>
+                        <p>Elegantes tiaras y coronas florales que complementan perfectamente tu look nupcial, creadas con delicadeza y atención al detalle.</p>
+                        <ul class="category-features">
+                            <li>Diseños exclusivos</li>
+                            <li>Materiales premium</li>
+                            <li>Ajuste perfecto</li>
+                            <li>Estilo romántico</li>
+                        </ul>
+                        <a href="#" class="category-btn">Ver Tiaras</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-image">
+                        <div class="category-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v6a4 4 0 004 4h4V5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <h3>Lazos y Accesorios</h3>
+                        <p>Hermosos lazos y accesorios florales para complementar tu atuendo especial, perfectos para bodas, quinceañeras y eventos únicos.</p>
+                        <ul class="category-features">
+                            <li>Variedad de estilos</li>
+                            <li>Colores coordinados</li>
+                            <li>Acabados delicados</li>
+                            <li>Versatilidad de uso</li>
+                        </ul>
+                        <a href="#" class="category-btn">Ver Accesorios</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-image">
+                        <div class="category-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <h3>Azahares</h3>
+                        <p>Tradicionales azahares para novias, símbolo de pureza y felicidad, elaborados con técnicas artesanales que preservan su significado.</p>
+                        <ul class="category-features">
+                            <li>Tradición y elegancia</li>
+                            <li>Simbolismo especial</li>
+                            <li>Técnica artesanal</li>
+                            <li>Pureza preservada</li>
+                        </ul>
+                        <a href="#" class="category-btn">Ver Azahares</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Productos Destacados</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Ramo Clásico Rosa</h3>
+                        <p>Elegante ramo de rosas preservadas en tonos rosados, perfecto para novias románticas.</p>
+                        <div class="product-price">Desde $1,200</div>
+                        <a href="#" class="product-btn">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Tiara Floral Delicada</h3>
+                        <p>Tiara con pequeñas flores blancas y verdes, ideal para un look natural y sofisticado.</p>
+                        <div class="product-price">Desde $800</div>
+                        <a href="#" class="product-btn">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Corona de Azahares</h3>
+                        <p>Tradicional corona de azahares, símbolo de pureza y felicidad para el día especial.</p>
+                        <div class="product-price">Desde $950</div>
+                        <a href="#" class="product-btn">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Set de Accesorios</h3>
+                        <p>Conjunto coordinado de lazos y accesorios florales para complementar tu look nupcial.</p>
+                        <div class="product-price">Desde $600</div>
+                        <a href="#" class="product-btn">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Ramo Preservado Blanco</h3>
+                        <p>Ramo clásico en tonos blancos y verdes, elegancia atemporal para tu día especial.</p>
+                        <div class="product-price">Desde $1,100</div>
+                        <a href="#" class="product-btn">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Tiara Vintage</h3>
+                        <p>Tiara con estilo vintage, perfecta para novias que buscan un toque clásico y distinguido.</p>
+                        <div class="product-price">Desde $1,000</div>
+                        <a href="#" class="product-btn">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso de Trabajo -->
+    <section class="process">
+        <div class="container">
+            <h2>Nuestro Proceso</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Consulta Inicial</h3>
+                    <p>Conversamos sobre tu visión, estilo y preferencias para crear el diseño perfecto para ti.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Diseño Personalizado</h3>
+                    <p>Creamos un diseño único basado en tus gustos, colores y el estilo de tu evento especial.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Creación Artesanal</h3>
+                    <p>Elaboramos tu pieza con cuidado y dedicación, utilizando las mejores flores preservadas.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Entrega Perfecta</h3>
+                    <p>Te entregamos tu producto terminado, listo para acompañarte en tu momento especial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Lista para tu Pieza Única?</h2>
+            <p>Contáctanos para crear juntos el accesorio perfecto para tu día especial</p>
+            <a href="contacto.html" class="cta-button">Solicitar Cotización</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Alma Eterna. Todos los derechos reservados.</p>
+            <p>Creando belleza que perdura en el tiempo</p>
+            <div class="footer-links">
+                <a href="productos.html">Productos</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="index.html#nosotros">Sobre Nosotros</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
